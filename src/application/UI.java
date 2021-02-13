@@ -45,7 +45,7 @@ public class UI {
 
 		} catch (RuntimeException e) {
 
-			throw new InputMismatchException("Errp reading cChessPosition. Valid values are form a1 to h8");
+			throw new InputMismatchException("Erro reading ChessPosition. Valid values are form a1 to h8");
 		}
 
 	}

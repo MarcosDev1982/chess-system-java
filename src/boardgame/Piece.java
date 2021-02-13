@@ -19,7 +19,7 @@ public abstract class Piece {
 
 	public boolean possibleMoves(Position position) {
 
-		return possibleMoves()[position.getRow()][position.getColum()];
+		return possibleMoves()[position.getRow()][position.getColumn()];
 
 	}
 	
