@@ -24,11 +24,11 @@ public class Program {
 				UI.clearScreen();
 				UI.printBoard(chessmatch.getPiece());
 				System.out.println();
-				System.out.print("Source");
+				System.out.print("Source: ");
 				ChessPosition source = UI.readChessposition(sc);
 				
 				System.out.println();
-				System.out.print("Target");
+				System.out.print("Target: ");
 				ChessPosition target = UI.readChessposition(sc);
 				
 				ChessPiece capturedPiece = chessmatch.performChessMove(source , target );
