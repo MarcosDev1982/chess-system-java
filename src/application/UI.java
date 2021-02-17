@@ -50,6 +50,13 @@ public class UI {
 
 	}
 	
+	public static void printMatch(ChessMatch chessMatch) {
+		printBoard(chessMatch.getPiece());
+		System.out.println();
+		System.out.println("Turn: "+chessMatch.getTurn());
+		System.out.println("Wating player: "+chessMatch.getCurrentPlayer());
+	}
+	
 
 	public static void printBoard(ChessPiece[][] pieces) {
 		for (int i = 0; i < pieces.length; i++) {
