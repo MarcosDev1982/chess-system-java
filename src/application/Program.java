@@ -21,7 +21,7 @@ public class Program {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		while(true) {
+		while(!chessmatch.getCheckMate()) {
 			try {
 			
 				UI.clearScreen();
@@ -56,7 +56,8 @@ public class Program {
 				sc.nextLine();
 			}
 		}
-		
+		UI.clearScreen();
+		UI.printMatch(chessmatch, captured);
 	}
 	
 
