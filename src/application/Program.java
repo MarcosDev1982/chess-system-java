@@ -16,32 +16,39 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		ChessMatch chessmatch = new ChessMatch();
+		ChessMatch chessMatch = new ChessMatch();
 		List<ChessPiece> captured = new ArrayList<>();
 		
 		Scanner sc = new Scanner(System.in);
 		
-		while(!chessmatch.getCheckMate()) {
+		while(!chessMatch.getCheckMate()) {
 			try {
 			
 				UI.clearScreen();
-				UI.printMatch(chessmatch, captured);
+				UI.printMatch(chessMatch, captured);
 				System.out.println();
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessposition(sc);
 				
-				boolean[][] possibleMoves = chessmatch.possibleMoves(source);
+				boolean[][] possibleMoves = chessMatch.possibleMoves(source);
 				UI.clearScreen();
-				UI.printBoard(chessmatch.getPiece(), possibleMoves);
+				UI.printBoard(chessMatch.getPiece(), possibleMoves);
 				System.out.println();
 				System.out.print("Target: ");
 				ChessPosition target = UI.readChessposition(sc);
 				
-				ChessPiece capturedPiece = chessmatch.performChessMove(source , target );
+				ChessPiece capturedPiece = chessMatch.performChessMove(source , target );
 				if(capturedPiece !=null) {
 					
 					captured.add(capturedPiece);
 				}
+				
+				if (chessMatch.getPromoted() != null) {
+					System.out.print("Enter piece for promotion (B/N/R/Q): ");
+					String type = sc.nextLine();
+					chessMatch.replacePromotedPiece(type);
+				}
+				
 			
 		}
 			catch(ChessException e) {
@@ -57,7 +64,7 @@ public class Program {
 			}
 		}
 		UI.clearScreen();
-		UI.printMatch(chessmatch, captured);
+		UI.printMatch(chessMatch, captured);
 	}
 	
 
